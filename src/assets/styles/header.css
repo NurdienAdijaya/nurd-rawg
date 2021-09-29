@@ -1,0 +1,8 @@
+.header {
+  background-color: #0b132b;
+}
+
+.header .search-input {
+  width: 18.75rem;
+  border-radius: 1.5rem;
+}

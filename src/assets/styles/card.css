@@ -1,0 +1,33 @@
+.card {
+  background-color: #3a506b;
+  width: 15.625rem;
+  height: 23.25rem;
+  border-radius: 0.625rem;
+}
+.card .img {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  object-fit: cover;
+  height: 9.6875rem;
+}
+.card .content {
+  padding: 10px;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+h3 {
+  color: white;
+}
+p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 !important;
+  padding: 0.125rem 0;
+}
+
+.card .content .content-flex {
+  display: flex;
+  border-top: rgba(255, 255, 255, 0.2) solid 0.00625rem;
+  justify-content: space-between;
+}
