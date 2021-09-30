@@ -32,7 +32,15 @@ const Card = ({ ...props }) => {
           </div>
           <div className="content-flex">
             <p>Genres: </p>
-            <p>{genre}</p>
+            <div className="genre">
+              {genre.map((item, index) => {
+                return (
+                  <p key={index}>
+                    {genre.length - 1 === index ? item.name : `${item.name}, `}
+                  </p>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

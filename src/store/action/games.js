@@ -6,3 +6,10 @@ export const getGames = (page = "") => {
     page,
   };
 };
+
+export const getGamesDetail = (id) => {
+  return {
+    type: types.GET_GAMES_DETAIL_BEGIN,
+    id,
+  };
+};

@@ -16,13 +16,7 @@
 .homepage .card-container:hover {
   box-shadow: 0 0 20px #ff0000;
 }
-.homepage .spinner-container {
-  width: inherit;
-  height: 80vh;
-  margin: 10px;
-  display: flex;
-  justify-content: space-evenly;
-}
+
 .homepage .spinner {
   width: 15.625rem;
   height: 21.25rem;

@@ -1,0 +1,23 @@
+.link {
+  text-decoration: none;
+}
+.spinner-container {
+  width: inherit;
+  height: 80vh;
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+p {
+  margin: 0 !important;
+}
+h6 {
+  margin: 0 !important;
+}
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+a:hover {
+  color: aquamarine;
+}

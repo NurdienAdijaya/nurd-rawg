@@ -21,6 +21,25 @@ function* getGames(actions) {
   }
 }
 
+function* getGamesDetail(actions) {
+  const { error, id } = actions;
+  try {
+    const res = yield axios.get(`${BASE_URL}/games/${id}?key=${API_KEY}`);
+    yield put({
+      type: types.GET_GAMES_DETAIL_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    yield put({
+      type: types.GET_GAMES_DETAIL_FAIL,
+      error: error,
+    });
+  }
+}
+
 export function* watchGetGames() {
   yield takeEvery(types.GET_GAMES_BEGIN, getGames);
+}
+export function* watchGetGamesDetail() {
+  yield takeEvery(types.GET_GAMES_DETAIL_BEGIN, getGamesDetail);
 }

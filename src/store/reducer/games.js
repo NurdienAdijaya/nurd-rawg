@@ -8,6 +8,13 @@ const initialState = {
     gamesError: null,
     gamesMessage: [],
   },
+  gameDetail: {
+    detail: [],
+    detailLoading: false,
+    detailSuccess: null,
+    detailError: null,
+    detailMessage: [],
+  },
 };
 
 const games = (state = initialState, action) => {
@@ -25,7 +32,6 @@ const games = (state = initialState, action) => {
           gamesLoading: true,
         },
       };
-
     case types.GET_GAMES_SUCCESS:
       return {
         ...state,
@@ -41,6 +47,32 @@ const games = (state = initialState, action) => {
           gamesError: true,
           gamesLoading: false,
           gamesMessage: payload,
+          error: error,
+        },
+      };
+
+    case types.GET_GAMES_DETAIL_BEGIN:
+      return {
+        ...state,
+        gameDetail: {
+          detailLoading: true,
+        },
+      };
+    case types.GET_GAMES_DETAIL_SUCCESS:
+      return {
+        ...state,
+        gameDetail: {
+          detail: payload,
+          detailLoading: false,
+        },
+      };
+    case types.GET_GAMES_DETAIL_FAIL:
+      return {
+        ...state,
+        gameDetail: {
+          detailError: true,
+          detailLoading: false,
+          detailMessage: payload,
           error: error,
         },
       };

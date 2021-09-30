@@ -1,0 +1,29 @@
+.detail {
+  background-color: #1c2541;
+  padding: 3.125rem;
+}
+.detail-container {
+  background-color: #3a506b77;
+  padding: 20px;
+  color: white;
+  border-radius: 0.625rem;
+}
+
+.sub-container {
+  margin: 20px 0;
+}
+h1 {
+  border-bottom: rgba(255, 255, 255, 0.2) solid 0.00625rem;
+  padding: 5px 0;
+}
+.platform {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .detail {
+    padding: 50px 20px;
+  }
+}

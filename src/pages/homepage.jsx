@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Pagination, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import "../assets/styles/homepage.css";
 import Card from "../components/card";
 import { getGames } from "../store/action/games";
@@ -22,8 +23,6 @@ const Homepage = () => {
   useEffect(() => {
     dispatch(getGames(page));
   }, [dispatch, page]);
-  console.log("games", games?.results);
-  // console.log("api", process.env.REACT_APP_API_KEY);
   return (
     <div className="homepage">
       {gamesLoading ? (
@@ -52,14 +51,16 @@ const Homepage = () => {
           {games?.results?.map((item, index) => {
             return (
               <div key={index} className="card-container">
-                <Card
-                  title={item.name}
-                  rating={item.rating}
-                  ratings_count={item.ratings_count}
-                  genre={item.genre}
-                  released={item.released}
-                  background_image={item.background_image}
-                />
+                <Link className="link" to={`/detail/${item.id}`}>
+                  <Card
+                    title={item.name}
+                    rating={item.rating}
+                    ratings_count={item.ratings_count}
+                    genre={item.genres}
+                    released={item.released}
+                    background_image={item.background_image}
+                  />
+                </Link>
               </div>
             );
           })}

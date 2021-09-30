@@ -9,21 +9,24 @@ import {
 import "../assets/styles/header.css";
 import logo from "../assets/images/Nurd-icon.png";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div>
       <Navbar className="header" bg="" variant="dark" expand="md">
         <Container fluid>
-          <Navbar.Brand href="#home">
-            <img
-              src={logo}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
-          </Navbar.Brand>
+          <Link to="/">
+            <Navbar.Brand>
+              <img
+                src={logo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />
+            </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
