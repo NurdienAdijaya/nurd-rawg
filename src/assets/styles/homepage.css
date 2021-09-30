@@ -3,20 +3,6 @@
   padding: 20px;
 }
 
-.homepage .card-outer-container {
-  color: white;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.homepage .card-container {
-  border-radius: 0.625rem;
-  margin: 10px;
-}
-.homepage .card-container:hover {
-  box-shadow: 0 0 20px #ff0000;
-}
-
 .homepage .spinner {
   width: 15.625rem;
   height: 21.25rem;

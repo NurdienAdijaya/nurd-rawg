@@ -39,7 +39,6 @@ const DetailPage = () => {
     <div
       className="detail"
       style={{
-        // backgroundImage: `url("${detail?.background_image}")`,
         backgroundSize: "cover",
         backgroundPosition: "center top",
         backgroundImage: `linear-gradient(to bottom, transparent, #1c2541),url("${detail?.background_image}")`,

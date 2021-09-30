@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Pagination, Spinner } from "react-bootstrap";
+import { Pagination } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "../assets/styles/homepage.css";
 import Card from "../components/card";
+import Loading from "../components/loading";
 import { getGames } from "../store/action/games";
+import { useParams } from "react-router";
 
 const Homepage = () => {
+  const { genre } = useParams();
   const dispatch = useDispatch();
   const { games, gamesLoading } = useSelector(
     (state) => state?.games?.listGames
@@ -21,31 +24,13 @@ const Homepage = () => {
   const lastPage = () => setPage(Math.floor(games?.count / 20 + 1));
 
   useEffect(() => {
-    dispatch(getGames(page));
-  }, [dispatch, page]);
+    dispatch(getGames(page, genre));
+  }, [dispatch, page, genre]);
+  console.log("genre", genre);
   return (
     <div className="homepage">
       {gamesLoading ? (
-        <div className="spinner-container">
-          <div className="spinner">
-            <Spinner animation="grow" variant="warning" />
-          </div>
-          <div className="spinner">
-            <Spinner animation="grow" variant="warning" />
-          </div>
-          <div className="spinner">
-            <Spinner animation="grow" variant="warning" />
-          </div>
-          <div className="spinner">
-            <Spinner animation="grow" variant="warning" />
-          </div>
-          <div className="spinner">
-            <Spinner animation="grow" variant="warning" />
-          </div>
-          <div className="spinner">
-            <Spinner animation="grow" variant="warning" />
-          </div>
-        </div>
+        <Loading />
       ) : (
         <div className="card-outer-container">
           {games?.results?.map((item, index) => {

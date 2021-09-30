@@ -4,10 +4,11 @@ import { put, takeEvery } from "redux-saga/effects";
 import * as types from "../../constants/types";
 
 function* getGames(actions) {
-  const { error, page } = actions;
+  const { error, page, genre } = actions;
+  const genres = genre ? `&genres=${genre}` : "";
   try {
     const res = yield axios.get(
-      `${BASE_URL}/games?key=${API_KEY}&page=${page}`
+      `${BASE_URL}/games?key=${API_KEY}&page=${page}${genres}`
     );
     yield put({
       type: types.GET_GAMES_SUCCESS,
