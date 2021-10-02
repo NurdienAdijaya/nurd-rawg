@@ -15,3 +15,12 @@
   display: flex;
   justify-content: center;
 }
+.first-title {
+  color: white;
+  display: flex;
+  white-space: pre-wrap;
+}
+
+.first-title h5 {
+  text-transform: capitalize;
+}

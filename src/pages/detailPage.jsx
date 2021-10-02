@@ -109,9 +109,13 @@ const DetailPage = () => {
             </div>
             <div className="sub-container">
               <h6>Website</h6>
-              <a href={detail?.website} target="_blank" rel="noreferrer">
-                {detail?.name}
-              </a>
+              {detail?.website ? (
+                <a href={detail?.website} target="_blank" rel="noreferrer">
+                  {detail?.name}
+                </a>
+              ) : (
+                "-"
+              )}
             </div>
             <div className="sub-container">
               <h6>Description</h6>

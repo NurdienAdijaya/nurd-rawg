@@ -4,6 +4,7 @@ import Header from "../components/header";
 import DetailPage from "../pages/detailPage";
 import GenresPage from "../pages/genresPage";
 import Homepage from "../pages/homepage";
+import SearchGenre from "../pages/searchGenre";
 
 const Routers = () => {
   return (
@@ -20,7 +21,7 @@ const Routers = () => {
           <GenresPage />
         </Route>
         <Route exact path="/games/:genre">
-          <Homepage />
+          <SearchGenre />
         </Route>
       </Switch>
       <Footer />

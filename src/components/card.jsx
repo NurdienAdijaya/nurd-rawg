@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/styles/card.css";
 import logo from "../assets/images/Nurd-icon-square.jpeg";
+import { Link } from "react-router-dom";
 
 const Card = ({ ...props }) => {
   const {
@@ -10,13 +11,14 @@ const Card = ({ ...props }) => {
     genre = "genre",
     released = "released",
     background_image = logo,
+    setpages,
   } = props;
 
   return (
     <div className="card">
       <img className="img" src={background_image} alt="" />
       <div className="content">
-        <div>
+        <div className="card-title">
           <h3>{title}</h3>
         </div>
         <div>
@@ -35,9 +37,13 @@ const Card = ({ ...props }) => {
             <div className="genre">
               {genre.map((item, index) => {
                 return (
-                  <p key={index}>
-                    {genre.length - 1 === index ? item.name : `${item.name}, `}
-                  </p>
+                  <Link onClick={setpages} to={`/games/${item.slug}`}>
+                    <p key={index}>
+                      {genre.length - 1 === index
+                        ? item.name
+                        : `${item.name}, `}
+                    </p>
+                  </Link>
                 );
               })}
             </div>

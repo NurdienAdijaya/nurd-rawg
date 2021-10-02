@@ -9,14 +9,38 @@ import {
 import "../assets/styles/header.css";
 import logo from "../assets/images/Nurd-icon.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { clearSearch, searchGames } from "../store/action/games";
+import { useLocation } from "react-router";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  const searchAll = (e) => {
+    if (e.target.value) {
+      dispatch(searchGames(1, e.target.value));
+    } else {
+      dispatch(clearSearch());
+    }
+  };
+
+  const debounce = (func, timeout = 400) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
+  };
+
+  const debounceSearch = debounce((e) => searchAll(e));
   return (
     <div>
       <Navbar className="header" bg="" variant="dark" expand="md">
         <Container fluid>
-          <Link to="/">
+          <a href="/">
             <Navbar.Brand>
               <img
                 src={logo}
@@ -26,7 +50,7 @@ const Header = () => {
                 alt="React Bootstrap logo"
               />
             </Navbar.Brand>
-          </Link>
+          </a>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -52,12 +76,15 @@ const Header = () => {
               </NavDropdown>
             </Nav>
             <Form className="d-flex justify-content-center">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2 search-input"
-                aria-label="Search"
-              />
+              {location.pathname === "/" ? (
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="me-2 search-input"
+                  aria-label="Search"
+                  onChange={(e) => debounceSearch(e)}
+                />
+              ) : null}
             </Form>
           </Navbar.Collapse>
         </Container>

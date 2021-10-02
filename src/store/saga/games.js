@@ -38,9 +38,53 @@ function* getGamesDetail(actions) {
   }
 }
 
+function* getGamesByGenre(actions) {
+  const { error, page, genre } = actions;
+  const genres = genre ? `genres=${genre}` : "";
+  try {
+    const res = yield axios.get(
+      `${BASE_URL}/games?key=${API_KEY}&page=${page}&${genres}`
+    );
+    yield put({
+      type: types.GET_GAMES_BY_GENRE_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    yield put({
+      type: types.GET_GAMES_BY_GENRE_FAIL,
+      error: error,
+    });
+  }
+}
+
+function* getGamesBySearch(actions) {
+  const { error, page, body } = actions;
+  const search = body ? `search=${body}` : "";
+  try {
+    const res = yield axios.get(
+      `${BASE_URL}/games?key=${API_KEY}&page=${page}&${search}`
+    );
+    yield put({
+      type: types.SEARCH_GAMES_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    yield put({
+      type: types.SEARCH_GAMES_FAIL,
+      error: error,
+    });
+  }
+}
+
 export function* watchGetGames() {
   yield takeEvery(types.GET_GAMES_BEGIN, getGames);
 }
 export function* watchGetGamesDetail() {
   yield takeEvery(types.GET_GAMES_DETAIL_BEGIN, getGamesDetail);
+}
+export function* watchGetGamesByGenre() {
+  yield takeEvery(types.GET_GAMES_BY_GENRE_BEGIN, getGamesByGenre);
+}
+export function* watchGetGamesBySearch() {
+  yield takeEvery(types.SEARCH_GAMES_BEGIN, getGamesBySearch);
 }

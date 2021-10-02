@@ -1,7 +1,7 @@
 .card {
   background-color: #3a506b;
   width: 15.625rem;
-  height: 23.25rem;
+  height: 24.65rem;
   border-radius: 0.625rem;
 }
 .card .img {
@@ -38,3 +38,10 @@ p {
   justify-content: flex-end;
   white-space: pre-wrap;
 }
+
+/* .card-title {
+  background-color: black;
+  height: 70px;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+} */
