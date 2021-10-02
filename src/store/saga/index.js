@@ -2,10 +2,12 @@ import { all } from "@redux-saga/core/effects";
 import {
   watchGetGames,
   watchGetGamesByGenre,
+  watchGetGamesByPlatform,
   watchGetGamesBySearch,
   watchGetGamesDetail,
 } from "./games";
 import { watchGetGenres } from "./genres";
+import { watchGetPlatform } from "./platform";
 
 export default function* rootSaga() {
   yield all([
@@ -13,6 +15,8 @@ export default function* rootSaga() {
     watchGetGamesDetail(),
     watchGetGamesByGenre(),
     watchGetGamesBySearch(),
+    watchGetGamesByPlatform(),
+    watchGetPlatform(),
     watchGetGenres(),
   ]);
 }

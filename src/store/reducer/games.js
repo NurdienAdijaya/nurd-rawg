@@ -30,6 +30,13 @@ const initialState = {
     searchError: null,
     searchMessage: [],
   },
+  GamesByPlatform: {
+    gamesByPlatform: [],
+    gamesByPlatformLoading: false,
+    gamesByPlatformSuccess: null,
+    gamesByPlatformError: null,
+    gamesByPlatformMessage: [],
+  },
 };
 
 const games = (state = initialState, action) => {
@@ -151,6 +158,32 @@ const games = (state = initialState, action) => {
           search: [],
           searchLoading: false,
           error: null,
+        },
+      };
+
+    case types.GET_GAMES_BY_PLATFORM_BEGIN:
+      return {
+        ...state,
+        GamesByPlatform: {
+          gamesByPlatformLoading: true,
+        },
+      };
+    case types.GET_GAMES_BY_PLATFORM_SUCCESS:
+      return {
+        ...state,
+        GamesByPlatform: {
+          gamesByPlatform: payload,
+          gamesByPlatformLoading: false,
+        },
+      };
+    case types.GET_GAMES_BY_PLATFORM_FAIL:
+      return {
+        ...state,
+        GamesByPlatform: {
+          gamesByPlatformError: true,
+          gamesByPlatformLoading: false,
+          gamesByPlatformMessage: payload,
+          error: error,
         },
       };
   }

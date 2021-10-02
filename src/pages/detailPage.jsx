@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import "../assets/styles/detailPage.css";
 import { getGamesDetail } from "../store/action/games";
 
@@ -75,14 +76,16 @@ const DetailPage = () => {
             </div>
             <div className="sub-container">
               <h6>Platforms</h6>
-              <div className="platform">
+              <div className="platform-container">
                 {detail?.platforms?.map((item, index) => {
                   return (
-                    <p key={index}>
-                      {detail?.platforms?.length - 1 === index
-                        ? item.name
-                        : `${item.platform.name}, `}
-                    </p>
+                    <Link to={`/platform/${item.platform.id}`}>
+                      <p className="platform" key={index}>
+                        {detail?.platforms?.length - 1 === index
+                          ? item.name
+                          : `${item.platform.name}, `}
+                      </p>
+                    </Link>
                   );
                 })}
               </div>
@@ -94,17 +97,21 @@ const DetailPage = () => {
                   marginTop: "0.4rem",
                 }}
               >
-                <p
-                  style={{
-                    color: metaColor,
-                    border: `${metaColor} solid 1px`,
-                    width: "30px",
-                    borderRadius: "20px",
-                    textAlign: "center",
-                  }}
-                >
-                  {meta}
-                </p>
+                {meta ? (
+                  <p
+                    style={{
+                      color: metaColor,
+                      border: `${metaColor} solid 1px`,
+                      width: "30px",
+                      borderRadius: "20px",
+                      textAlign: "center",
+                    }}
+                  >
+                    {meta}
+                  </p>
+                ) : (
+                  "-"
+                )}
               </div>
             </div>
             <div className="sub-container">

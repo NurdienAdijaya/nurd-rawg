@@ -76,6 +76,25 @@ function* getGamesBySearch(actions) {
   }
 }
 
+function* getGamesByPlatform(actions) {
+  const { error, page, platform } = actions;
+  const platforms = platform ? `platforms=${platform}` : "";
+  try {
+    const res = yield axios.get(
+      `${BASE_URL}/games?key=${API_KEY}&page=${page}&${platforms}`
+    );
+    yield put({
+      type: types.GET_GAMES_BY_PLATFORM_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    yield put({
+      type: types.GET_GAMES_BY_PLATFORM_FAIL,
+      error: error,
+    });
+  }
+}
+
 export function* watchGetGames() {
   yield takeEvery(types.GET_GAMES_BEGIN, getGames);
 }
@@ -87,4 +106,7 @@ export function* watchGetGamesByGenre() {
 }
 export function* watchGetGamesBySearch() {
   yield takeEvery(types.SEARCH_GAMES_BEGIN, getGamesBySearch);
+}
+export function* watchGetGamesByPlatform() {
+  yield takeEvery(types.GET_GAMES_BY_PLATFORM_BEGIN, getGamesByPlatform);
 }

@@ -5,6 +5,7 @@ import DetailPage from "../pages/detailPage";
 import GenresPage from "../pages/genresPage";
 import Homepage from "../pages/homepage";
 import SearchGenre from "../pages/searchGenre";
+import SearchPlatform from "../pages/searchPlatform";
 
 const Routers = () => {
   return (
@@ -20,8 +21,12 @@ const Routers = () => {
         <Route exact path="/genres">
           <GenresPage />
         </Route>
-        <Route exact path="/games/:genre">
+        <Route exact path="/genre/:genre">
           <SearchGenre />
+        </Route>
+
+        <Route exact path="/platform/:platform">
+          <SearchPlatform />
         </Route>
       </Switch>
       <Footer />

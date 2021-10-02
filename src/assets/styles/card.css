@@ -45,3 +45,6 @@ p {
   overflow: hidden !important;
   text-overflow: ellipsis;
 } */
+.genre-list:hover {
+  color: aquamarine;
+}

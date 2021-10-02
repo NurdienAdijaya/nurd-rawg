@@ -19,7 +19,7 @@ const GenreCard = ({ ...props }) => {
       <div className="genre-container">
         <div className="genre-container-1">
           <div className="genre-title">
-            <Link to={`/games/${slug}`} className="link">
+            <Link to={`/genre/${slug}`} className="link">
               <h3>{name}</h3>
             </Link>
           </div>

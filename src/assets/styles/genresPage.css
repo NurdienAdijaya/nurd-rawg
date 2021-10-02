@@ -2,3 +2,12 @@
   background-color: #1c2541;
   padding: 20px 10px;
 }
+.genres-page-title {
+  color: white;
+}
+
+@media only screen and (min-width: 325px) {
+  .genres-page-title {
+    margin: 0 30px;
+  }
+}

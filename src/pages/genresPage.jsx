@@ -21,21 +21,26 @@ const GenresPage = () => {
       {genresLoading ? (
         <Loading />
       ) : (
-        <div className="card-outer-container">
-          {genres?.results?.map((item, index) => {
-            return (
-              <div key={index} className="card-container">
-                <GenreCard
-                  image_background={item.image_background}
-                  name={item.name}
-                  games_count={item.games_count}
-                  games={item.games}
-                  slug={item.slug}
-                />
-              </div>
-            );
-          })}
-        </div>
+        <>
+          <div className="genres-page-title">
+            <h2>Genre List</h2>
+          </div>
+          <div className="card-outer-container">
+            {genres?.results?.map((item, index) => {
+              return (
+                <div key={index} className="card-container">
+                  <GenreCard
+                    image_background={item.image_background}
+                    name={item.name}
+                    games_count={item.games_count}
+                    games={item.games}
+                    slug={item.slug}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );

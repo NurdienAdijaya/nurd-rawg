@@ -16,10 +16,13 @@ h1 {
   border-bottom: rgba(255, 255, 255, 0.2) solid 0.00625rem;
   padding: 5px 0;
 }
-.platform {
+.platform-container {
   display: flex;
   flex-wrap: wrap;
   white-space: pre-wrap;
+}
+.platform:hover {
+  color: aquamarine;
 }
 
 @media only screen and (max-width: 600px) {

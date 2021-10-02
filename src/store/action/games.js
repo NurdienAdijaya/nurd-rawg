@@ -22,6 +22,14 @@ export const getGamesByGenre = (page = "1", genre = "") => {
   };
 };
 
+export const getGamesByPlatform = (page = "1", platform = "") => {
+  return {
+    type: types.GET_GAMES_BY_PLATFORM_BEGIN,
+    page,
+    platform,
+  };
+};
+
 export const searchGames = (page = "1", body) => {
   return {
     type: types.SEARCH_GAMES_BEGIN,

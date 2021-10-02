@@ -37,8 +37,8 @@ const Card = ({ ...props }) => {
             <div className="genre">
               {genre.map((item, index) => {
                 return (
-                  <Link onClick={setpages} to={`/games/${item.slug}`}>
-                    <p key={index}>
+                  <Link onClick={setpages} to={`/genre/${item.slug}`}>
+                    <p className="genre-list" key={index}>
                       {genre.length - 1 === index
                         ? item.name
                         : `${item.name}, `}
