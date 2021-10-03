@@ -33,7 +33,7 @@ const PLatformPage = () => {
                     name={item.name}
                     games_count={item.games_count}
                     games={item.games}
-                    slug={item.id}
+                    id={item.id}
                   />
                 </div>
               );

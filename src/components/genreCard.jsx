@@ -3,7 +3,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const GenreCard = ({ ...props }) => {
-  const { image_background, name, games_count, games, slug } = props;
+  const { image_background, name, games_count, games, slug, id } = props;
 
   return (
     <div
@@ -18,7 +18,7 @@ const GenreCard = ({ ...props }) => {
     >
       <div className="genre-container">
         <div className="genre-container-1">
-          <Link to={`/genre/${slug}`} className="link">
+          <Link to={id ? `/platform/${id}` : `/genre/${slug}`} className="link">
             <div className="genre-title">
               <h3>{name}</h3>
             </div>
