@@ -1,5 +1,5 @@
 import "../assets/styles/genreCard.css";
-import { BsFillPeopleFill } from "react-icons/bs";
+// import { BsFillPeopleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const GenreCard = ({ ...props }) => {
@@ -38,7 +38,7 @@ const GenreCard = ({ ...props }) => {
                     </Link>
                     <div className="total-popular-games">
                       <p>{item.added} </p>
-                      <BsFillPeopleFill />
+                      {/* <BsFillPeopleFill /> */}
                     </div>
                   </div>
                 )
