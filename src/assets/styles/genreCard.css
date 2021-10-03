@@ -1,6 +1,6 @@
 .genre-container {
   background-color: #3a506bab;
-  padding: 10px 15px;
+  padding: 0.625rem 0.9375rem;
   color: white;
   border-radius: 0.625rem;
   height: inherit;
@@ -10,14 +10,14 @@
   text-align: center;
 }
 .genre-title {
-  height: 60px;
+  height: 3.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .genre-total-games {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .genre-popular-games {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   text-align: start;
 }
 
@@ -35,7 +35,7 @@
   align-items: center;
 }
 .title-games {
-  width: 200px;
+  width: 12.5rem;
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;

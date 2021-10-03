@@ -1,15 +1,15 @@
 import React from "react";
 import "../assets/styles/card.css";
-import logo from "../assets/images/Nurd-icon-square.jpeg";
+import logo from "../assets/images/RxN.png";
 import { Link } from "react-router-dom";
 
 const Card = ({ ...props }) => {
   const {
-    title = "title",
-    rating = 4,
-    ratings_count = 10869,
-    genre = "genre",
-    released = "released",
+    title,
+    rating,
+    ratings_count,
+    genre,
+    released,
     background_image = logo,
     setpages,
   } = props;

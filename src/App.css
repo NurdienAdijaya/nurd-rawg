@@ -9,15 +9,15 @@
 }
 .card-container {
   border-radius: 0.625rem;
-  margin: 10px;
+  margin: 0.625rem;
 }
 .card-container:hover {
-  box-shadow: 0 0 20px #ff0000;
+  box-shadow: 0 0 1.25rem #ff0000;
 }
 .spinner-container {
   width: inherit;
   height: 80vh;
-  margin: 10px;
+  margin: 0.625rem;
   display: flex;
   justify-content: space-evenly;
 }
@@ -40,7 +40,7 @@ h5 {
   margin: 0 !important;
 }
 h6 {
-  margin: 5px 0 !important;
+  margin: 0.3125rem 0 !important;
 }
 a {
   text-decoration: none;
@@ -48,4 +48,8 @@ a {
 }
 a:hover {
   color: aquamarine;
+}
+
+.container-card {
+  margin: 1.875rem 0;
 }

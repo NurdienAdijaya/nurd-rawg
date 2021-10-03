@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import "../assets/styles/detailPage.css";
 import { getGamesDetail } from "../store/action/games";
+import logo from "../assets/images/RxN.png";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -13,6 +14,8 @@ const DetailPage = () => {
   const { detail, detailLoading } = useSelector(
     (state) => state?.games?.gameDetail
   );
+
+  const background = detail?.background_image ? detail?.background_image : logo;
 
   useEffect(() => {
     dispatch(getGamesDetail(id));
@@ -42,7 +45,7 @@ const DetailPage = () => {
       style={{
         backgroundSize: "cover",
         backgroundPosition: "center top",
-        backgroundImage: `linear-gradient(to bottom, transparent, #1c2541),url("${detail?.background_image}")`,
+        backgroundImage: `linear-gradient(to bottom, transparent, #1c2541),url("${background}")`,
       }}
     >
       <div className="detail-container">
@@ -71,10 +74,6 @@ const DetailPage = () => {
           <div>
             <h1>{detail?.name}</h1>
             <div className="sub-container">
-              <h6>Release date</h6>
-              <p>{detail?.released}</p>
-            </div>
-            <div className="sub-container">
               <h6>Platforms</h6>
               <div className="platform-container">
                 {detail?.platforms?.map((item, index) => {
@@ -82,13 +81,33 @@ const DetailPage = () => {
                     <Link to={`/platform/${item.platform.id}`}>
                       <p className="platform" key={index}>
                         {detail?.platforms?.length - 1 === index
-                          ? item.name
+                          ? item.platform.name
                           : `${item.platform.name}, `}
                       </p>
                     </Link>
                   );
                 })}
               </div>
+            </div>
+            <div className="sub-container">
+              <h6>Genres</h6>
+              <div className="platform-container">
+                {detail?.genres?.map((item, index) => {
+                  return (
+                    <Link to={`/genre/${item.slug}`}>
+                      <p className="platform" key={index}>
+                        {detail?.genres?.length - 1 === index
+                          ? item.name
+                          : `${item.name}, `}
+                      </p>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="sub-container">
+              <h6>Release date</h6>
+              <p>{detail?.released}</p>
             </div>
             <div className="sub-container">
               <h6>Metascore</h6>
@@ -101,9 +120,9 @@ const DetailPage = () => {
                   <p
                     style={{
                       color: metaColor,
-                      border: `${metaColor} solid 1px`,
-                      width: "30px",
-                      borderRadius: "20px",
+                      border: `${metaColor} solid 0.125rem`,
+                      width: "2.5rem",
+                      borderRadius: "1rem",
                       textAlign: "center",
                     }}
                   >

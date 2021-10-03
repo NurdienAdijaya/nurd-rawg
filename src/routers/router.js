@@ -4,6 +4,7 @@ import Header from "../components/header";
 import DetailPage from "../pages/detailPage";
 import GenresPage from "../pages/genresPage";
 import Homepage from "../pages/homepage";
+import PLatformPage from "../pages/platformsPage";
 import SearchGenre from "../pages/searchGenre";
 import SearchPlatform from "../pages/searchPlatform";
 
@@ -25,6 +26,9 @@ const Routers = () => {
           <SearchGenre />
         </Route>
 
+        <Route exact path="/platforms">
+          <PLatformPage />
+        </Route>
         <Route exact path="/platform/:platform">
           <SearchPlatform />
         </Route>

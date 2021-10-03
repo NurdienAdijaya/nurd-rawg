@@ -2,6 +2,11 @@
   background-color: #0b132b;
 }
 
+.header img {
+  border-radius: 50%;
+  width: 3.125rem;
+}
+
 .header .search-input {
   width: 18.75rem;
   border-radius: 1.5rem;

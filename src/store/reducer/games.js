@@ -37,6 +37,13 @@ const initialState = {
     gamesByPlatformError: null,
     gamesByPlatformMessage: [],
   },
+  listRated: {
+    rated: [],
+    ratedLoading: false,
+    ratedSuccess: null,
+    ratedError: null,
+    ratedMessage: [],
+  },
 };
 
 const games = (state = initialState, action) => {
@@ -183,6 +190,32 @@ const games = (state = initialState, action) => {
           gamesByPlatformError: true,
           gamesByPlatformLoading: false,
           gamesByPlatformMessage: payload,
+          error: error,
+        },
+      };
+
+    case types.GET_RATED_BEGIN:
+      return {
+        ...state,
+        listRated: {
+          ratedLoading: true,
+        },
+      };
+    case types.GET_RATED_SUCCESS:
+      return {
+        ...state,
+        listRated: {
+          rated: payload,
+          ratedLoading: false,
+        },
+      };
+    case types.GET_RATED_FAIL:
+      return {
+        ...state,
+        listRated: {
+          ratedError: true,
+          ratedLoading: false,
+          ratedMessage: payload,
           error: error,
         },
       };

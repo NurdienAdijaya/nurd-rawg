@@ -43,3 +43,9 @@ export const clearSearch = () => {
     type: types.CLEAR,
   };
 };
+
+export const getRated = () => {
+  return {
+    type: types.GET_RATED_BEGIN,
+  };
+};

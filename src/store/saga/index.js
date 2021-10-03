@@ -5,6 +5,7 @@ import {
   watchGetGamesByPlatform,
   watchGetGamesBySearch,
   watchGetGamesDetail,
+  watchGetRated,
 } from "./games";
 import { watchGetGenres } from "./genres";
 import { watchGetPlatform } from "./platform";
@@ -16,6 +17,7 @@ export default function* rootSaga() {
     watchGetGamesByGenre(),
     watchGetGamesBySearch(),
     watchGetGamesByPlatform(),
+    watchGetRated(),
     watchGetPlatform(),
     watchGetGenres(),
   ]);

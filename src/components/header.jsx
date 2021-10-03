@@ -4,10 +4,10 @@ import {
   FormControl,
   Nav,
   Navbar,
-  NavDropdown,
+  // NavDropdown,
 } from "react-bootstrap";
 import "../assets/styles/header.css";
-import logo from "../assets/images/Nurd-icon.png";
+import logo from "../assets/images/RxN.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch } from "react-redux";
 import { clearSearch, searchGames } from "../store/action/games";
@@ -44,8 +44,6 @@ const Header = () => {
             <Navbar.Brand>
               <img
                 src={logo}
-                width="30"
-                height="30"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
               />
@@ -55,12 +53,14 @@ const Header = () => {
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
+              // style={{ maxHeight: "100px" }}
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/genres">Genres</Nav.Link>
-              <NavDropdown title="Dropdown" id="navbarScrollingDropdown">
+              <Nav.Link href="/platforms">Platforms</Nav.Link>
+
+              {/* <NavDropdown title="Dropdown" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
                   Another action
@@ -73,7 +73,7 @@ const Header = () => {
                 <NavDropdown.Item href="#action5">
                   Something else here
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
             <Form className="d-flex justify-content-center">
               {location.pathname === "/" ? (

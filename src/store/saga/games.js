@@ -95,6 +95,24 @@ function* getGamesByPlatform(actions) {
   }
 }
 
+function* getRated(actions) {
+  const { error } = actions;
+  try {
+    const res = yield axios.get(
+      `${BASE_URL}/games?key=${API_KEY}&ordering=-metacritic`
+    );
+    yield put({
+      type: types.GET_RATED_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    yield put({
+      type: types.GET_RATED_FAIL,
+      error: error,
+    });
+  }
+}
+
 export function* watchGetGames() {
   yield takeEvery(types.GET_GAMES_BEGIN, getGames);
 }
@@ -109,4 +127,7 @@ export function* watchGetGamesBySearch() {
 }
 export function* watchGetGamesByPlatform() {
   yield takeEvery(types.GET_GAMES_BY_PLATFORM_BEGIN, getGamesByPlatform);
+}
+export function* watchGetRated() {
+  yield takeEvery(types.GET_RATED_BEGIN, getRated);
 }

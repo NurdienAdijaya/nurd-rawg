@@ -5,8 +5,11 @@ import * as types from "../../constants/types";
 
 function* getPlatform(actions) {
   const { error, id } = actions;
+  const searchId = id ? `/${id}` : "";
   try {
-    const res = yield axios.get(`${BASE_URL}/platforms/${id}?key=${API_KEY}`);
+    const res = yield axios.get(
+      `${BASE_URL}/platforms${searchId}?key=${API_KEY}`
+    );
     yield put({
       type: types.GET_PLATFORM_SUCCESS,
       payload: res.data,

@@ -1,6 +1,6 @@
 .homepage {
   background-color: #1c2541;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .homepage .spinner {
@@ -11,7 +11,7 @@
 }
 .homepage .pagination {
   width: 100%;
-  margin: 10px 0;
+  margin: 0.625rem 0;
   display: flex;
   justify-content: center;
 }
@@ -26,16 +26,39 @@
 }
 
 .image-carousel {
-  /* height: 31.25rem; */
-  height: 500px;
-  /* max-height: 31.25rem; */
+  height: 37.5rem;
   object-fit: cover;
-  /* object-position: center top; */
-  background-color: aliceblue;
+  border-radius: 3.125rem;
+}
+.carousel-content {
+  background-color: #3a506b77;
+  border-radius: 0.625rem;
+  color: white;
 }
 
-@media only screen and (max-width: 600px) {
+.homepage .platform-container {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+  justify-content: center;
+}
+.platform:hover {
+  color: aquamarine;
+}
+
+@media only screen and (max-width: 50rem) {
   .image-carousel {
-    height: 400px;
+    height: 31.25rem;
+  }
+}
+
+@media only screen and (max-width: 37.5rem) {
+  .image-carousel {
+    height: 25rem;
+  }
+}
+@media only screen and (max-width: 25rem) {
+  .image-carousel {
+    height: 18.75rem;
   }
 }

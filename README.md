@@ -1,17 +1,18 @@
-# welcome to NURD x RAWG Project.
+# Welcome to NURD x RAWG Project.
 
-you can see live app at https://nurd-rawg.netlify.app/
+You can see live app at https://nurd-rawg.netlify.app/
 
 This project was created in order to fulfill the individual task of Glints Academy.
 
-what is implemented in this project?
+What is implemented in this project?
 
 - Responsive for tablet or tablet devices
 - User can view detail of each game, and also can visit directly to game's official site
-- user can view all genres and can see what games are popular in each genre
-- user can see games in each platform
+- User can view all genres and can see what games are popular in each genre
+- User can see games in each platform
+- PWA (Progressive Web Apps) so user can download this app in chrome for desktop and android
 
-if you want to ask more about this project, feel free to reach me at:
+If you want to ask more about this project, feel free to reach me at:
 
 <p align="center">
 <a href="https://linkedin.com/in/nurdienadijaya" target="_blank"><img src="https://img.shields.io/badge/-nurdien%20adijaya-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>

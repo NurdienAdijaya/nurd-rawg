@@ -18,11 +18,11 @@ const GenreCard = ({ ...props }) => {
     >
       <div className="genre-container">
         <div className="genre-container-1">
-          <div className="genre-title">
-            <Link to={`/genre/${slug}`} className="link">
+          <Link to={`/genre/${slug}`} className="link">
+            <div className="genre-title">
               <h3>{name}</h3>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <div className="genre-total-games">
             <h6>Total games</h6>
             <p>{games_count}</p>

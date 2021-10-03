@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import "../assets/styles/homepage.css";
 import Card from "../components/card";
 import Loading from "../components/loading";
-import { getGames } from "../store/action/games";
+import { getGames, getRated } from "../store/action/games";
+import logo from "../assets/images/RxN.png";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -16,30 +17,37 @@ const Homepage = () => {
   const { search, gamesLoading: searchLoading } = useSelector(
     (state) => state?.games?.listSearch
   );
-
+  const { rated, ratedLoading } = useSelector(
+    (state) => state?.games?.listRated
+  );
   const resultList = games?.results?.length;
   const [page, setPage] = useState(1);
+  const lastPageCount =
+    games?.count % resultList === 0
+      ? Math.floor(games?.count / resultList)
+      : Math.floor(games?.count / resultList + 1);
 
   const firstPage = () => setPage(1);
   const previousPage = () => setPage(page - 1);
+  const previous2Page = () => setPage(page - 2);
+
   const nextPage = () => setPage(page + 1);
-  const lastPage = () =>
-    setPage(
-      games?.count % resultList === 0
-        ? Math.floor(games?.count / resultList)
-        : Math.floor(games?.count / resultList + 1)
-    );
+  const next2Page = () => setPage(page + 2);
+  const lastPage = () => setPage(lastPageCount);
 
   useEffect(() => {
     dispatch(getGames(page));
   }, [dispatch, page]);
+  useEffect(() => {
+    dispatch(getRated());
+  }, [dispatch]);
 
   return (
     <div className="homepage">
-      {gamesLoading ? (
+      {gamesLoading || ratedLoading || searchLoading ? (
         <Loading />
       ) : searchLoading ? (
-        "Loading Search"
+        <Loading />
       ) : search?.results && search?.results.length ? (
         <div className="card-outer-container">
           {search?.results?.map((item, index) => {
@@ -63,42 +71,58 @@ const Homepage = () => {
       ) : (
         <>
           <Carousel fade>
-            {games?.results?.map((item, index) => {
+            {rated?.results?.map((item, index) => {
               return (
                 <Carousel.Item interval={1000}>
-                  <img
-                    className="d-block w-100 image-carousel"
-                    src={item.background_image}
-                    alt={`${index + 1} Slide`}
-                  />
-                  <Carousel.Caption>
-                    <h3>{`${index + 1} Slide label`}</h3>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </Carousel.Caption>
+                  <Link to={`/detail/${item.id}`}>
+                    <img
+                      className="d-block w-100 image-carousel"
+                      src={item.background_image ? item.background_image : logo}
+                      alt={`${index + 1} Slide`}
+                    />
+                    <Carousel.Caption>
+                      <div className="carousel-content">
+                        <h3>{item.name}</h3>
+                        <div className="platform-container">
+                          {item?.platforms.map((platforms, index) => {
+                            return (
+                              <Link to={`/platform/${platforms.platform.id}`}>
+                                <p className="platform" key={index}>
+                                  {item?.platforms?.length - 1 === index
+                                    ? platforms.platform.name
+                                    : `${platforms.platform.name}, `}
+                                </p>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </Carousel.Caption>
+                  </Link>
                 </Carousel.Item>
               );
             })}
           </Carousel>
-          <div className="card-outer-container">
-            {games?.results?.map((item, index) => {
-              return (
-                <div key={index} className="card-container">
-                  <Link className="link" to={`/detail/${item.id}`}>
-                    <Card
-                      title={item.name}
-                      rating={item.rating}
-                      ratings_count={item.ratings_count}
-                      genre={item.genres}
-                      released={item.released}
-                      background_image={item.background_image}
-                      setpages={firstPage}
-                    />
-                  </Link>
-                </div>
-              );
-            })}
+          <div className="container-card">
+            <div className="card-outer-container">
+              {games?.results?.map((item, index) => {
+                return (
+                  <div key={index} className="card-container">
+                    <Link className="link" to={`/detail/${item.id}`}>
+                      <Card
+                        title={item.name}
+                        rating={item.rating}
+                        ratings_count={item.ratings_count}
+                        genre={item.genres}
+                        released={item.released}
+                        background_image={item.background_image}
+                        setpages={firstPage}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
           {games ? (
             <div className="pagination">
@@ -106,7 +130,9 @@ const Homepage = () => {
                 {games.previous ? (
                   <>
                     <Pagination.First onClick={firstPage} />
-                    <Pagination.Prev onClick={previousPage} />
+                    {page > 2 ? (
+                      <Pagination.Prev onClick={previous2Page} />
+                    ) : null}
                     <Pagination.Item onClick={previousPage}>
                       {page - 1}
                     </Pagination.Item>
@@ -118,7 +144,9 @@ const Homepage = () => {
                     <Pagination.Item onClick={nextPage}>
                       {page + 1}
                     </Pagination.Item>
-                    <Pagination.Next onClick={nextPage} />
+                    {page < lastPageCount - 1 ? (
+                      <Pagination.Next onClick={next2Page} />
+                    ) : null}
                     <Pagination.Last onClick={lastPage} />
                   </>
                 ) : null}
