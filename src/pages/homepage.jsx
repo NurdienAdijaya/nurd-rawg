@@ -30,7 +30,6 @@ const Homepage = () => {
   const firstPage = () => setPage(1);
   const previousPage = () => setPage(page - 1);
   const previous2Page = () => setPage(page - 2);
-
   const nextPage = () => setPage(page + 1);
   const next2Page = () => setPage(page + 2);
   const lastPage = () => setPage(lastPageCount);
@@ -73,7 +72,7 @@ const Homepage = () => {
           <Carousel fade>
             {rated?.results?.map((item, index) => {
               return (
-                <Carousel.Item interval={1000}>
+                <Carousel.Item interval={1800}>
                   <Link to={`/detail/${item.id}`}>
                     <img
                       className="d-block w-100 image-carousel"

@@ -1,7 +1,7 @@
 .card {
-  background-color: #3a506b;
+  background-color: #3a506b54;
   width: 15.625rem;
-  height: 24.65rem;
+  height: 20rem;
   border-radius: 0.625rem;
 }
 .card .img {

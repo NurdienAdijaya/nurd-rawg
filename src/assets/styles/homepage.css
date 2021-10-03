@@ -1,5 +1,5 @@
 .homepage {
-  background-color: #1c2541;
+  background-color: #0b101f;
   padding: 1.25rem;
 }
 
@@ -19,6 +19,7 @@
   color: white;
   display: flex;
   white-space: pre-wrap;
+  flex-wrap: wrap;
 }
 
 .first-title h5 {
@@ -48,17 +49,17 @@
 
 @media only screen and (max-width: 50rem) {
   .image-carousel {
-    height: 31.25rem;
+    height: 29.25rem;
   }
 }
 
 @media only screen and (max-width: 37.5rem) {
   .image-carousel {
-    height: 25rem;
+    height: 22rem;
   }
 }
 @media only screen and (max-width: 25rem) {
   .image-carousel {
-    height: 18.75rem;
+    height: 15.75rem;
   }
 }

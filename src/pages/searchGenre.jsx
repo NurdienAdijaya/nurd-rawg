@@ -18,24 +18,25 @@ const SearchGenre = () => {
   const resultList = gamesByGenre?.results?.length;
   const [page, setPage] = useState(1);
 
+  // !bug on API, if searching genre and page >500 the result is invalid
+
+  const lastPageCount =
+    gamesByGenre?.count > 10000
+      ? 500
+      : gamesByGenre?.count % resultList === 0
+      ? Math.floor(gamesByGenre?.count / resultList)
+      : Math.floor(gamesByGenre?.count / resultList + 1);
+
   const firstPage = () => setPage(1);
   const previousPage = () => setPage(page - 1);
+  const previous2Page = () => setPage(page - 2);
   const nextPage = () => setPage(page + 1);
-  //   const lastPage = () =>
-  //     setPage(
-  //       gamesByGenre?.count % resultList === 0
-  //         ? Math.floor(gamesByGenre?.count / resultList)
-  //         : Math.floor(gamesByGenre?.count / resultList + 1)
-  //     );
-  // !bug on API, if searching genre and page >500 the result is invalid
-  const lastPage = () =>
-    setPage(
-      gamesByGenre?.count > 10000
-        ? 500
-        : gamesByGenre?.count % resultList === 0
-        ? Math.floor(gamesByGenre?.count / resultList)
-        : Math.floor(gamesByGenre?.count / resultList + 1)
-    );
+  const next2Page = () => setPage(page + 2);
+  const lastPage = () => setPage(lastPageCount);
+
+  console.log("gamesByGenre", gamesByGenre);
+
+  console.log("lastPageCount", lastPageCount);
 
   useEffect(() => {
     dispatch(getGamesByGenre(page, genre));
@@ -78,17 +79,19 @@ const SearchGenre = () => {
             {gamesByGenre.previous ? (
               <>
                 <Pagination.First onClick={firstPage} />
-                <Pagination.Prev onClick={previousPage} />
+                {page > 2 ? <Pagination.Prev onClick={previous2Page} /> : null}
                 <Pagination.Item onClick={previousPage}>
                   {page - 1}
                 </Pagination.Item>
               </>
             ) : null}
             <Pagination.Item active>{page}</Pagination.Item>
-            {page < 500 ? (
+            {gamesByGenre.next ? (
               <>
                 <Pagination.Item onClick={nextPage}>{page + 1}</Pagination.Item>
-                <Pagination.Next onClick={nextPage} />
+                {page < lastPageCount - 1 ? (
+                  <Pagination.Next onClick={next2Page} />
+                ) : null}
                 <Pagination.Last onClick={lastPage} />
               </>
             ) : null}
