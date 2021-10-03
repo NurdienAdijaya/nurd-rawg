@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Pagination } from "react-bootstrap";
+import { Carousel, Pagination } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -62,6 +62,25 @@ const Homepage = () => {
         </div>
       ) : (
         <>
+          <Carousel fade>
+            {games?.results?.map((item, index) => {
+              return (
+                <Carousel.Item interval={1000}>
+                  <img
+                    className="d-block w-100 image-carousel"
+                    src={item.background_image}
+                    alt={`${index + 1} Slide`}
+                  />
+                  <Carousel.Caption>
+                    <h3>{`${index + 1} Slide label`}</h3>
+                    <p>
+                      Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
           <div className="card-outer-container">
             {games?.results?.map((item, index) => {
               return (

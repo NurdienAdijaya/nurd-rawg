@@ -24,3 +24,18 @@
 .first-title h5 {
   text-transform: capitalize;
 }
+
+.image-carousel {
+  /* height: 31.25rem; */
+  height: 500px;
+  /* max-height: 31.25rem; */
+  object-fit: cover;
+  /* object-position: center top; */
+  background-color: aliceblue;
+}
+
+@media only screen and (max-width: 600px) {
+  .image-carousel {
+    height: 400px;
+  }
+}

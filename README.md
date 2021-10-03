@@ -1,8 +1,16 @@
-welcome to NURD x RAWG Project.
+# welcome to NURD x RAWG Project.
 
-youn can see live app at https://nurd-rawg.netlify.app/
+you can see live app at https://nurd-rawg.netlify.app/
 
 This project was created in order to fulfill the individual task of Glints Academy.
+
+what is implemented in this project?
+
+- Responsive for tablet or tablet devices
+- User can view detail of each game, and also can visit directly to game's official site
+- user can view all genres and can see what games are popular in each genre
+- user can see games in each platform
+
 if you want to ask more about this project, feel free to reach me at:
 
 <p align="center">
@@ -20,7 +28,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Installing NURD x RAWG
 
-Before you run the app, first you need to install it with `yarn install` or `npm install`
+Before you run the app, you need to install it with `yarn install` or `npm install`
 
 ## Available Scripts
 
