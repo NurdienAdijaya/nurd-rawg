@@ -5,7 +5,7 @@
   color: white;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .card-container {
   border-radius: 0.625rem;

@@ -81,7 +81,7 @@ const Homepage = () => {
                     />
                     <Carousel.Caption>
                       <div className="carousel-content">
-                        <h3>{item.name}</h3>
+                        <h4>{item.name}</h4>
                         <div className="platform-container">
                           {item?.platforms.map((platforms, index) => {
                             return (

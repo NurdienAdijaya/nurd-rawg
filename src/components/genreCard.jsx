@@ -8,11 +8,11 @@ const GenreCard = ({ ...props }) => {
   return (
     <div
       style={{
-        backgroundImage: `linear-gradient(to bottom, transparent, #3a506b),url("${image_background}")`,
+        backgroundImage: `linear-gradient(to bottom, transparent, #0b101f),url("${image_background}")`,
         backgroundSize: "cover",
         backgroundPosition: "center top",
         borderRadius: "0.625rem",
-        height: "15.25rem",
+        height: "13.5rem",
         width: "18.625rem",
       }}
     >
@@ -20,7 +20,7 @@ const GenreCard = ({ ...props }) => {
         <div className="genre-container-1">
           <Link to={id ? `/platform/${id}` : `/genre/${slug}`} className="link">
             <div className="genre-title">
-              <h3>{name}</h3>
+              <h2>{name}</h2>
             </div>
           </Link>
           <div className="genre-total-games">
