@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const GenreCard = ({ ...props }) => {
   const { image_background, name, games_count, games, slug } = props;
-  console.log("games", games);
+
   return (
     <div
       style={{

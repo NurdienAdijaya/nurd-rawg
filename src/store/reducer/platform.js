@@ -4,7 +4,6 @@ const initialState = {
   listPlatform: {
     platformName: [],
     platformLoading: false,
-    platformSuccess: null,
     platformError: null,
     platformMessage: [],
   },

@@ -15,7 +15,6 @@ const PLatformPage = () => {
     dispatch(getPlatform());
   }, [dispatch]);
 
-  console.log("genres", platformName);
   return (
     <div className="genres-page">
       {platformLoading ? (

@@ -24,6 +24,10 @@ h1 {
 .platform:hover {
   color: aquamarine;
 }
+.video-container {
+  color: white;
+  padding: 0 1.25rem;
+}
 
 @media only screen and (max-width: 37.5rem) {
   .detail {

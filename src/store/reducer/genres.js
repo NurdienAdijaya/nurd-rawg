@@ -4,7 +4,6 @@ const initialState = {
   listGenres: {
     genres: [],
     genresLoading: false,
-    genresSuccess: null,
     genresError: null,
     genresMessage: [],
   },

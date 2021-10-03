@@ -4,14 +4,12 @@ const initialState = {
   listGames: {
     games: [],
     gamesLoading: false,
-    gamesSuccess: null,
     gamesError: null,
     gamesMessage: [],
   },
   gameDetail: {
     detail: [],
     detailLoading: false,
-    detailSuccess: null,
     detailError: null,
     detailMessage: [],
   },
@@ -19,28 +17,24 @@ const initialState = {
   GamesByGenre: {
     gamesByGenre: [],
     gamesByGenreLoading: false,
-    gamesByGenreSuccess: null,
     gamesByGenreError: null,
     gamesByGenreMessage: [],
   },
   listSearch: {
     search: [],
     searchLoading: false,
-    searchSuccess: null,
     searchError: null,
     searchMessage: [],
   },
   GamesByPlatform: {
     gamesByPlatform: [],
     gamesByPlatformLoading: false,
-    gamesByPlatformSuccess: null,
     gamesByPlatformError: null,
     gamesByPlatformMessage: [],
   },
   listRated: {
     rated: [],
     ratedLoading: false,
-    ratedSuccess: null,
     ratedError: null,
     ratedMessage: [],
   },

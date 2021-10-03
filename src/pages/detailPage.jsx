@@ -40,117 +40,119 @@ const DetailPage = () => {
       ? "red"
       : "#B31B1B";
   return (
-    <div
-      className="detail"
-      style={{
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-        backgroundImage: `linear-gradient(to bottom, transparent, #1c2541),url("${background}")`,
-      }}
-    >
-      <div className="detail-container">
-        {detailLoading ? (
-          <div className="spinner-container">
-            <div className="spinner">
-              <Spinner animation="grow" variant="warning" />
-            </div>
-            <div className="spinner">
-              <Spinner animation="grow" variant="warning" />
-            </div>
-            <div className="spinner">
-              <Spinner animation="grow" variant="warning" />
-            </div>
-            <div className="spinner">
-              <Spinner animation="grow" variant="warning" />
-            </div>
-            <div className="spinner">
-              <Spinner animation="grow" variant="warning" />
-            </div>
-            <div className="spinner">
-              <Spinner animation="grow" variant="warning" />
-            </div>
-          </div>
-        ) : (
-          <div>
-            <h1>{detail?.name}</h1>
-            <div className="sub-container">
-              <h6>Platforms</h6>
-              <div className="platform-container">
-                {detail?.platforms?.map((item, index) => {
-                  return (
-                    <Link to={`/platform/${item.platform.id}`}>
-                      <p className="platform" key={index}>
-                        {detail?.platforms?.length - 1 === index
-                          ? item.platform.name
-                          : `${item.platform.name}, `}
-                      </p>
-                    </Link>
-                  );
-                })}
+    <>
+      <div
+        className="detail"
+        style={{
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          backgroundImage: `linear-gradient(to bottom, transparent, #1c2541),url("${background}")`,
+        }}
+      >
+        <div className="detail-container">
+          {detailLoading ? (
+            <div className="spinner-container">
+              <div className="spinner">
+                <Spinner animation="grow" variant="warning" />
+              </div>
+              <div className="spinner">
+                <Spinner animation="grow" variant="warning" />
+              </div>
+              <div className="spinner">
+                <Spinner animation="grow" variant="warning" />
+              </div>
+              <div className="spinner">
+                <Spinner animation="grow" variant="warning" />
+              </div>
+              <div className="spinner">
+                <Spinner animation="grow" variant="warning" />
+              </div>
+              <div className="spinner">
+                <Spinner animation="grow" variant="warning" />
               </div>
             </div>
-            <div className="sub-container">
-              <h6>Genres</h6>
-              <div className="platform-container">
-                {detail?.genres?.map((item, index) => {
-                  return (
-                    <Link to={`/genre/${item.slug}`}>
-                      <p className="platform" key={index}>
-                        {detail?.genres?.length - 1 === index
-                          ? item.name
-                          : `${item.name}, `}
-                      </p>
-                    </Link>
-                  );
-                })}
+          ) : (
+            <div>
+              <h1>{detail?.name}</h1>
+              <div className="sub-container">
+                <h6>Platforms</h6>
+                <div className="platform-container">
+                  {detail?.platforms?.map((item, index) => {
+                    return (
+                      <Link to={`/platform/${item.platform.id}`}>
+                        <p className="platform" key={index}>
+                          {detail?.platforms?.length - 1 === index
+                            ? item.platform.name
+                            : `${item.platform.name}, `}
+                        </p>
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-            <div className="sub-container">
-              <h6>Release date</h6>
-              <p>{detail?.released}</p>
-            </div>
-            <div className="sub-container">
-              <h6>Metascore</h6>
-              <div
-                style={{
-                  marginTop: "0.4rem",
-                }}
-              >
-                {meta ? (
-                  <p
-                    style={{
-                      color: metaColor,
-                      border: `${metaColor} solid 0.125rem`,
-                      width: "2.5rem",
-                      borderRadius: "1rem",
-                      textAlign: "center",
-                    }}
-                  >
-                    {meta}
-                  </p>
+              <div className="sub-container">
+                <h6>Genres</h6>
+                <div className="platform-container">
+                  {detail?.genres?.map((item, index) => {
+                    return (
+                      <Link to={`/genre/${item.slug}`}>
+                        <p className="platform" key={index}>
+                          {detail?.genres?.length - 1 === index
+                            ? item.name
+                            : `${item.name}, `}
+                        </p>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="sub-container">
+                <h6>Release date</h6>
+                <p>{detail?.released}</p>
+              </div>
+              <div className="sub-container">
+                <h6>Metascore</h6>
+                <div
+                  style={{
+                    marginTop: "0.4rem",
+                  }}
+                >
+                  {meta ? (
+                    <p
+                      style={{
+                        color: metaColor,
+                        border: `${metaColor} solid 0.125rem`,
+                        width: "2.5rem",
+                        borderRadius: "1rem",
+                        textAlign: "center",
+                      }}
+                    >
+                      {meta}
+                    </p>
+                  ) : (
+                    "-"
+                  )}
+                </div>
+              </div>
+              <div className="sub-container">
+                <h6>Website</h6>
+                {detail?.website ? (
+                  <a href={detail?.website} target="_blank" rel="noreferrer">
+                    {detail?.name}
+                  </a>
                 ) : (
                   "-"
                 )}
               </div>
+              <div className="sub-container">
+                <h6>Description</h6>
+                <p>{detail?.description_raw}</p>
+              </div>
             </div>
-            <div className="sub-container">
-              <h6>Website</h6>
-              {detail?.website ? (
-                <a href={detail?.website} target="_blank" rel="noreferrer">
-                  {detail?.name}
-                </a>
-              ) : (
-                "-"
-              )}
-            </div>
-            <div className="sub-container">
-              <h6>Description</h6>
-              <p>{detail?.description_raw}</p>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

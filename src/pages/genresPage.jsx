@@ -15,7 +15,6 @@ const GenresPage = () => {
     dispatch(getGenres());
   }, [dispatch]);
 
-  console.log("genres", genres);
   return (
     <div className="genres-page">
       {genresLoading ? (
